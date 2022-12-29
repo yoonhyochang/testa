@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 7. 복붙 -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 8. -> mybatis-config.xml 이동-->
+<mapper namespace="com.smhrd.model.DAO">
+	<!--26.  -> 8번 namespace 경로를 DAO 넘기기-->
+	<insert id="insert" parameterType="com.smhrd.model.VO">
+		insert into webmember values (#{id}, #{pw}, #{name})
+	</insert>
+	
+	<select id="selectOne" resultType="String" parameterType="com.smhrd.model.VO">
+		select name from webmember where id=#{id} and pw=#{pw}
+	</select>
+	
+</mapper>

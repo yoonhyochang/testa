@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 3. 복붙 -->
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 4. -->
+<configuration>
+	<!-- 5. 환경설정(계정, driver, url) -->
+	<environments default="development">
+	<!-- 6. 복붙 -->
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver"	value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+				<property name="username" value="hr" />
+				<property name="password" value="hr" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 6. 복붙 (insert 등  다른파일 불러올때 겹치는것을 방지하기위해 -> 
+	database패키지에 MemberMapper.xml만들기)-->
+	<mappers>
+							<!-- 9. 경로 지정 -> database패키지에 SqlSessionManager클래스 생성 -->
+		<mapper resource="com/smhrd/database/MemberMapper.xml"/>
+	</mappers>
+
+</configuration>
+
