@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.model.DAO">
+	<!-- parameterType : sql 실행시 넘겾줄 파라미터의 실제 타입 -->
+    <insert id="insert" parameterType="com.smhrd.model.VO"> <!-- sql문을 호출할 DAO 경로 -->
+        insert into member values (#{id}, #{pw}, #{nick})
+    </insert>
+    
+     <select id="selectOne" resultType="String" parameterType="com.smhrd.model.VO">
+        select nick from member where id=#{id} and pw=#{pw}
+    </select>
+    
+    <update id="update" parameterType="com.smhrd.model.VO">
+    	update member set pw=#{pw},nick=#{nick} where id = #{id}
+    </update>
+    
+    <delete id="delete" parameterType="String">
+    	delete from member where id=#{id}
+    </delete>
+</mapper>
+
